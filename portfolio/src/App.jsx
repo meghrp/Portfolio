@@ -67,7 +67,7 @@ function App() {
             <button
                 type="button"
                 onClick={handleThemeSwitch}
-                className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg rounded-md"
+                className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg rounded-md active:scale-[.97] active:duration-75 transition-all hover:scale-[1.02]"
             >
                 {theme === "dark" ? sun : moon}
             </button>
