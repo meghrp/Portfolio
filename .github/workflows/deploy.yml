@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         defaults:
             run:
-                working-directory: /portfolio
+                working-directory: ./portfolio
         name: Build and Push
         steps:
             - name: git-checkout
