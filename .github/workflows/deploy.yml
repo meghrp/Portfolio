@@ -8,12 +8,11 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ./portfolio
         name: Build and Push
         steps:
-            - name: Setup Directory
-              working-directory: ./portfolio
-              run: cd portfolio
-
             - name: git-checkout
               uses: actions/checkout@v2
 
