@@ -9,7 +9,7 @@ export default [
         title: "Portfolio",
         imgURL: "assets/dev-portfolio.jpg",
         stack: ["React", "Tailwind", "Vite"],
-        link: "",
+        link: "https://github.com/meghrp/Portfolio",
     },
     {
         title: "Weather App",
