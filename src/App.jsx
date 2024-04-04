@@ -29,14 +29,7 @@ function App() {
     }, [theme]);
 
     const sun = (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
             <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -46,14 +39,7 @@ function App() {
     );
 
     const moon = (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="white"
-            className="w-6 h-6"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6">
             <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -67,11 +53,11 @@ function App() {
             <button
                 type="button"
                 onClick={handleThemeSwitch}
-                className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg rounded-md active:scale-[.97] active:duration-75 transition-all hover:scale-[1.02]"
+                className="fixed p-2 z-10 right-5 top-4 bg-gray-300 hover:bg-gray-400 hover:shadow-lg hover:shadow-blue-400 dark:hover:shadow-indigo-500/50 dark:bg-gray-700 text-lg dark:text-gray-100 dark:hover:bg-gray-600 rounded-md active:scale-[.97] active:duration-75 transition-all hover:scale-[1.02]"
             >
                 {theme === "dark" ? sun : moon}
             </button>
-            <div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter">
+            <div className="bg-gray-100 dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen font-inter">
                 <div className="max-w-5xl w-11/12 mx-auto">
                     <Intro />
                     <Portfolio />
