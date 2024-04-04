@@ -1,15 +1,15 @@
 export default [
     {
+        title: "Image Upscaler",
+        imgURL: "assets/img-upscaler.jpg",
+        stack: ["Python", "Docker", "Cloud Run"],
+        link: "https://image-upscaler-jjstv6z6sq-uc.a.run.app/",
+    },
+    {
         title: "CodeGPT",
         imgURL: "assets/codegpt.jpg",
         stack: ["HTML", "CSS", "JavaScript"],
         link: "http://codegpt.vercel.app",
-    },
-    {
-        title: "Portfolio",
-        imgURL: "assets/dev-portfolio.jpg",
-        stack: ["React", "Tailwind", "Vite"],
-        link: "https://github.com/meghrp/Portfolio",
     },
     {
         title: "Weather App",
