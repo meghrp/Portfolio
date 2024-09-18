@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Intro from "./components/Intro";
-import Portfolio from "./components/Portfolio";
-import Timeline from "./components/Timeline";
+import { useEffect, useState } from "react";
+import Contact from "./components/Contact.jsx";
+import Footer from "./components/Footer.jsx";
+import Intro from "./components/Intro.jsx";
+import Portfolio from "./components/Portfolio.jsx";
+import Timeline from "./components/Timeline.jsx";
 
 function App() {
-	const [theme, setTheme] = useState(null);
+	const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
 	useEffect(() => {
 		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
