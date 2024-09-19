@@ -5,7 +5,7 @@ function Intro() {
 		<div className="flex items-center justify-center flex-col text-center pt-20 pd-6">
 			<h1 className="text-4xl md:text-7xl dark:text-white mb-1 md:mb-3 font-bold relative">
 				<span className="relative z-10">Megh Pathak</span>{" "}
-				<span className="absolute inset-0 dark:animate-pulse bg-blue-200 dark:bg-blue-800 dark:opacity-50 blur-xl z-0"></span>
+				<span className="absolute inset-0 dark:animate-pulse bg-blue-200 dark:bg-blue-800 dark:opacity-50 blur-xl z-0 transition-colors duration-1000"></span>
 			</h1>
 			<p className="text-base md:text-xl mb-3 font-medium">i code sometimes</p>
 			<p className="text-sm max-w-xl mb-6 font-bold">

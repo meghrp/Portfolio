@@ -21,6 +21,14 @@ function App() {
 		setIsDark(!isDark);
 	};
 
+	useEffect(() => {
+		if (isDark) {
+			document.body.classList.add("dark");
+		} else {
+			document.body.classList.remove("dark");
+		}
+	}, [isDark]);
+
 	const onClickWrapper = (event: React.MouseEvent<HTMLElement>) => {
 		const bodyRect = document.body.getBoundingClientRect();
 		const elemRect = (event.target as HTMLElement).getBoundingClientRect();
@@ -73,16 +81,16 @@ function App() {
 	);
 
 	return (
-		<>
+		<div className={`${isDark ? "dark" : ""}`}>
 			<button
 				type="button"
-				onClick={onClickWrapper} // Remove the isDark argument
-				className="fixed p-2 z-10 right-5 top-4 bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 text-lg dark:text-gray-100 dark:hover:bg-gray-600 rounded-md duration-300 hover:scale-105 dark:hover:shadow-[0_0_40px_rgba(0,0,255,0.5)] hover:shadow-blue-200 shadow-xl"
+				onClick={onClickWrapper}
+				className="fixed p-2 z-10 right-5 top-4 bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 text-lg dark:text-gray-100 dark:hover:bg-gray-600 rounded-md duration-1000 hover:scale-105 dark:hover:shadow-[0_0_40px_rgba(0,0,255,0.5)] hover:shadow-blue-200 shadow-xl"
 			>
 				{isDark ? sun : moon}
 			</button>
 			<GrowingCircleAnimation isDark={isDark} />
-			<div className=" text-gray-900 dark:text-gray-100 min-h-screen font-inter">
+			<div className="z-[-1] text-black dark:text-gray-100 transition-colors duration-700 min-h-screen font-inter">
 				<div className="max-w-5xl w-11/12 mx-auto">
 					<Intro />
 					<Portfolio />
@@ -91,7 +99,7 @@ function App() {
 					<Footer />
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 

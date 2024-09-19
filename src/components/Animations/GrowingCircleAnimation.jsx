@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { debounce, throttle } from "../../utils/Limitors";
 const COLORS = {
-	white: "#FFF",
+	white: "#f3f4f6",
 	midnightBlack: "#111",
 };
 

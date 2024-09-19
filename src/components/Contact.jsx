@@ -6,7 +6,7 @@ function Contact() {
 		<div className="flex flex-col mb-10 mx-auto">
 			<div className="flex justify-center items-center">
 				<form
-					action="https://getform.io/f/3de60424-0907-4c01-b497-7ac13d4794bb"
+					action="https://getform.io/f/your-form-id"
 					method="POST"
 					className="flex flex-col w-full md:w-7/12"
 				>
@@ -15,19 +15,19 @@ function Contact() {
 						type="text"
 						name="name"
 						placeholder="Name"
-						className="p-2 bg-transparent border-2 rounded-md focus:outline-none"
+						className="p-2 bg-transparent border-2 rounded-md focus:outline-none border-stone-900 dark:border-white transition-colors duration-700"
 					/>
 					<input
 						type="text"
 						name="email"
 						placeholder="Email"
-						className="my-2 p-2 bg-transparent border-2 rounded-md focus:outline-none"
+						className="my-2 p-2 bg-transparent border-2 rounded-md focus:outline-none border-stone-900 dark:border-white transition-colors duration-700"
 					/>
 					<textarea
 						name="message"
 						placeholder="Message"
 						rows="10"
-						className="mb-4 p-2 bg-transparent border-2 rounded-md focus:outline-none"
+						className="p-2 mb-4 bg-transparent border-2 rounded-md focus:outline-none border-stone-900 dark:border-white transition-colors duration-700"
 					></textarea>
 					<button
 						type="submit"
