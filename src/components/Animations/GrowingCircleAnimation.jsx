@@ -164,7 +164,7 @@ const GrowingCircleAnimation = ({ isDark }) => {
 		};
 	}, [isDark]);
 
-	return <canvas className={"w-full h-full fixed z-[-1] bg-black"} ref={canvasRef} />;
+	return <canvas className={"w-full h-full fixed z-[-1] bg-[#111]"} ref={canvasRef} />;
 };
 
 GrowingCircleAnimation.propTypes = {

@@ -81,7 +81,7 @@ function App() {
 	);
 
 	return (
-		<div className={`${isDark ? "dark" : ""}`}>
+		<>
 			<button
 				type="button"
 				onClick={onClickWrapper}
@@ -99,7 +99,7 @@ function App() {
 					<Footer />
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 
