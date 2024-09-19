@@ -10,7 +10,7 @@ const RADIUS_GROWTH_PER_MS = 0.025;
 const GROWTH_FUNCTION_EXPONENTIAL = 2.9;
 // We don't need such a high resolution for this type of animation. Plus a lower resolution makes
 // the edges of the circle look blurred, which looks nicer. Improves performance a lot on slow GPUs
-const PIXEL_SCALING_FACTOR = 0.5;
+const PIXEL_SCALING_FACTOR = 0.25;
 
 const circleCenterCoordinates = {
 	x: null,
