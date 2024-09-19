@@ -4,29 +4,39 @@ import Footer from "./components/Footer.jsx";
 import Intro from "./components/Intro.jsx";
 import Portfolio from "./components/Portfolio.jsx";
 import Timeline from "./components/Timeline.jsx";
+import GrowingCircleAnimation from "./components/Animations/GrowingCircleAnimation.jsx";
 
 function App() {
-	const [theme, setTheme] = useState<"light" | "dark" | null>(null);
+	const [isDark, setIsDark] = useState<true | false>(false);
 
 	useEffect(() => {
 		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-			setTheme("dark");
+			setIsDark(true);
 		} else {
-			setTheme("light");
+			setIsDark(false);
 		}
 	}, []);
 
 	const handleThemeSwitch = () => {
-		setTheme(theme === "dark" ? "light" : "dark");
+		setIsDark(!isDark);
 	};
 
-	useEffect(() => {
-		if (theme === "dark") {
-			document.documentElement.classList.add("dark");
-		} else {
-			document.documentElement.classList.remove("dark");
-		}
-	}, [theme]);
+	const onClickWrapper = (event: React.MouseEvent<HTMLElement>) => {
+		const bodyRect = document.body.getBoundingClientRect();
+		const elemRect = (event.target as HTMLElement).getBoundingClientRect();
+		const offsetLeft = elemRect.left - bodyRect.left;
+
+		const customEventState = {
+			// custom object to wrap event data
+			x: offsetLeft + elemRect.width / 2, // center coordinates of the dark mode toggle on the x-axis
+			y: elemRect.top + elemRect.height / 2, // center coordinates of the dark mode toggle on the y-axis
+		};
+
+		const darkModeToggleEvent = new CustomEvent("darkModeToggle", { detail: customEventState });
+		setIsDark(!isDark);
+		localStorage.setItem("theme", isDark.toString());
+		dispatchEvent(darkModeToggleEvent);
+	};
 
 	const sun = (
 		<svg
@@ -66,12 +76,13 @@ function App() {
 		<>
 			<button
 				type="button"
-				onClick={handleThemeSwitch}
+				onClick={onClickWrapper} // Remove the isDark argument
 				className="fixed p-2 z-10 right-5 top-4 bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 text-lg dark:text-gray-100 dark:hover:bg-gray-600 rounded-md duration-300 hover:scale-105 dark:hover:shadow-[0_0_40px_rgba(0,0,255,0.5)] hover:shadow-blue-200 shadow-xl"
 			>
-				{theme === "dark" ? sun : moon}
+				{isDark ? sun : moon}
 			</button>
-			<div className="bg-gray-100 dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen font-inter">
+			<GrowingCircleAnimation isDark={isDark} />
+			<div className=" text-gray-900 dark:text-gray-100 min-h-screen font-inter">
 				<div className="max-w-5xl w-11/12 mx-auto">
 					<Intro />
 					<Portfolio />
