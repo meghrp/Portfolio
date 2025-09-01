@@ -5,6 +5,8 @@ import Intro from "./components/Intro.jsx";
 import Portfolio from "./components/Portfolio.jsx";
 import Timeline from "./components/Timeline.jsx";
 import GrowingCircleAnimation from "./components/Animations/GrowingCircleAnimation.jsx";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
 	const [isDark, setIsDark] = useState<true | false>(false);
@@ -93,12 +95,14 @@ function App() {
 			<div className="z-[-1] text-black dark:text-gray-100 transition-colors duration-700 min-h-screen font-inter">
 				<div className="max-w-5xl w-11/12 mx-auto">
 					<Intro />
-					<Portfolio />
+					{/*<Portfolio />*/}
 					<Timeline />
 					<Contact />
 					<Footer />
 				</div>
 			</div>
+			<Analytics/>
+            <SpeedInsights/>
 		</>
 	);
 }
