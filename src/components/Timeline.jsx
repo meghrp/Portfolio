@@ -7,7 +7,7 @@ function Timeline() {
 	return (
 		<div className="flex flex-col md:flex-row justify-center my-20">
 			<div className="w-full md:w-7/12">
-				<Title id="timeline">Timeline</Title>
+				{/* <Title id="timeline">Timeline</Title>*/}
 				{timeline.map((item, index) => (
 					<TimelineItem
 						key={index}

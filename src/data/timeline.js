@@ -1,16 +1,21 @@
 export default [
     {
         year: "Today",
-        title: "HBSc in Computer Science and Mathematics",
-        duration: "2020 - Present",
-        details:
-            "Passionate about solving complex problems and implementing real-world solutions. Co-developed Athena Learning, automating student-project matchmaking for UofT courses, showcasing my drive to streamline processes and enhance user experiences.",
+        title: "Software Engineer at startup",
+        duration: "Present",
+        details: "coding..."
     },
     {
         year: "Today",
         title: "Technical Co-founder at ParkinSense",
         duration: "2023 - Present",
-        details: "Developing wearable tech and software to help Parkinson's patients monitor and manage symptoms, focusing on practical solutions that impact patients' lives.",
+        details: "developing wearable tech and software to help Parkinson's patients monitor and manage symptoms, focusing on practical solutions that impact patients' lives.",
+    },
+    {
+        year: "2025",
+        title: "HBSc in Computer Science and Mathematics",
+        duration: "2020 - 2025",
+        details: "i graduted!"
     },
     {
         year: "2022",

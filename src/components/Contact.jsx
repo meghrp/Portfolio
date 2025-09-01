@@ -10,7 +10,7 @@ function Contact() {
 					method="POST"
 					className="flex flex-col w-full md:w-7/12"
 				>
-					<Title id="contact">Contact</Title>
+					<Title id="contact">message me!</Title>
 					<input
 						type="text"
 						name="name"
@@ -31,9 +31,9 @@ function Contact() {
 					></textarea>
 					<button
 						type="submit"
-						className="text-center inline-block px-8 py-3 w-max text-base font-medium rounded-md text-white bg-gradient-to-r to-blue-500 from-indigo-500 duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,0,255,0.5)]"
+						className="text-center inline-block px-8 py-3 w-max text-base font-medium rounded-md text-white bg-gradient-to-r bg-blue-500 duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,0,255,0.5)]"
 					>
-						Contact Me
+					    send
 					</button>
 				</form>
 			</div>
