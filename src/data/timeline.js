@@ -1,12 +1,6 @@
 export default [
     {
         year: "Today",
-        title: "Software Engineer at startup",
-        duration: "Present",
-        details: "coding..."
-    },
-    {
-        year: "Today",
         title: "Technical Co-founder at ParkinSense",
         duration: "2023 - Present",
         details: "developing wearable tech and software to help Parkinson's patients monitor and manage symptoms, focusing on practical solutions that impact patients' lives.",

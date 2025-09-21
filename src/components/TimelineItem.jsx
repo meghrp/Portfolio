@@ -10,7 +10,7 @@ function TimelineItem({ year, title, duration, details }) {
 						{year}
 					</span>
 					<h3 className="text-lg font-semibold text-stone-900 dark:text-white transition-colors duration-700">
-						{title}
+						{title ?? ""}
 					</h3>
 					<div className="my-1 text-sm font-normal leading-none text-stone-400 dark:text-stone-500 transition-colors duration-700">
 						{duration}
