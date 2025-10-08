@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import Intro from "./components/Intro.jsx";
@@ -10,18 +10,15 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [isDark, setIsDark] = useState<true | false>(false);
+  const systemThemeIsDark = useRef<boolean>(false);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setIsDark(true);
-    } else {
-      setIsDark(false);
-    }
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    systemThemeIsDark.current = prefersDark;
+    setIsDark(prefersDark);
   }, []);
-
-  const handleThemeSwitch = () => {
-    setIsDark(!isDark);
-  };
 
   useEffect(() => {
     if (isDark) {
@@ -32,22 +29,31 @@ function App() {
   }, [isDark]);
 
   const onClickWrapper = (event: React.MouseEvent<HTMLElement>) => {
-    const bodyRect = document.body.getBoundingClientRect();
     const elemRect = (event.target as HTMLElement).getBoundingClientRect();
-    const offsetLeft = elemRect.left - bodyRect.left;
 
-    const customEventState = {
-      // custom object to wrap event data
-      x: offsetLeft + elemRect.width / 2, // center coordinates of the dark mode toggle on the x-axis
-      y: elemRect.top + elemRect.height / 2, // center coordinates of the dark mode toggle on the y-axis
-    };
+    // Get click position relative to viewport
+    const x = elemRect.left + elemRect.width / 2;
+    const y = elemRect.top + elemRect.height / 2;
 
-    const darkModeToggleEvent = new CustomEvent("darkModeToggle", {
-      detail: customEventState,
-    });
-    setIsDark(!isDark);
-    localStorage.setItem("theme", isDark.toString());
-    dispatchEvent(darkModeToggleEvent);
+    if (!document.startViewTransition) {
+      setIsDark(!isDark);
+      localStorage.setItem("theme", (!isDark).toString());
+    } else {
+      document.documentElement.style.setProperty("--x", `${x}px`);
+      document.documentElement.style.setProperty("--y", `${y}px`);
+
+      const willReturnToSystemTheme = !isDark === systemThemeIsDark.current;
+
+      document.documentElement.setAttribute(
+        "data-theme-transition",
+        willReturnToSystemTheme ? "contract" : "expand",
+      );
+
+      document.startViewTransition(() => {
+        setIsDark(!isDark);
+        localStorage.setItem("theme", (!isDark).toString());
+      });
+    }
   };
 
   const sun = (
@@ -93,7 +99,7 @@ function App() {
       >
         {isDark ? sun : moon}
       </button>
-      <GrowingCircleAnimation isDark={isDark} />
+      {/* <GrowingCircleAnimation isDark={isDark} /> */}
       <div className="z-[-1] text-black dark:text-gray-100 transition-colors duration-700 min-h-screen font-inter">
         <div className="max-w-5xl w-11/12 mx-auto">
           <Intro />

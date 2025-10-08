@@ -61,6 +61,58 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-700;
+    @apply bg-background text-foreground;
+  }
+}
+
+/* View Transition API - Circle expand/contract animation */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-group(root) {
+  animation-timing-function: ease-in-out;
+}
+
+/* Expand animation - when moving away from system theme */
+[data-theme-transition="expand"]::view-transition-new(root) {
+  animation: circle-expand 1.5s ease-in-out forwards;
+  z-index: 999;
+}
+
+[data-theme-transition="expand"]::view-transition-old(root) {
+  z-index: -1;
+  animation: none;
+}
+
+/* Contract animation - when returning to system theme */
+[data-theme-transition="contract"]::view-transition-old(root) {
+  animation: circle-contract 1.5s ease-in-out forwards;
+  z-index: 999;
+}
+
+[data-theme-transition="contract"]::view-transition-new(root) {
+  z-index: -1;
+  animation: none;
+  opacity: 1;
+}
+
+@keyframes circle-expand {
+  from {
+    clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+  }
+}
+
+@keyframes circle-contract {
+  from {
+    clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+  }
+  to {
+    clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
   }
 }
